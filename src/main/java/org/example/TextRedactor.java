@@ -4,7 +4,6 @@ import java.util.Vector;
 
 public class TextRedactor {
     Vector<String> vector = new Vector<>();
-    Vector<String> newVector = new Vector<>();
     Scanner scanner = new Scanner(System.in);
 
     public void readText(){
@@ -37,8 +36,12 @@ public class TextRedactor {
     }
 
     public void deleteK() {
-        System.out.print("Введите число k - количество слов, которые удаляем ");
+        System.out.print("Введите число k(>0) - количество слов, которые удаляем ");
         int k = scanner.nextInt();
+        if(k < 0){
+            System.out.print("k < 0");
+            return;
+        }
         scanner.nextLine();
 
         for (int i = 0; i < vector.size(); i++) {
